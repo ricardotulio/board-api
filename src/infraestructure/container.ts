@@ -1,18 +1,21 @@
-import GetBoardController from "../application/controllers/GetBoardController"
-import FakeBoardRepository from "./repositories/FakeBoardRepository"
+import GetBoardController from '../application/controllers/GetBoardController'
+import BoardRepository from './repositories/FakeBoardRepository'
+import { curry, pipe } from 'ramda'
 
-const container:any = {}
+class Container {
+  container: { [key: string]: Function} = {}
 
-container['BoardRepository'] = () => new FakeBoardRepository
+  register(name: string, buildFunction: Function): Container {
+    this.container[name] = buildFunction
 
-container['GetBoardController'] = () => {
-  return (id: string) => GetBoardController(get('BoardRepository'), id)
+    return this
+  }
+
+  get(name: string) {
+    return this.container[name]()
+  }
 }
 
-const get = (className: string) => {
-  return container[className]()
-}
+const container = new Container()
 
-export default {
-  get,
-}
+export default container
