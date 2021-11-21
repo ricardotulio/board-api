@@ -4,7 +4,11 @@ import IBoardService from './IBoardService'
 
 class BoardService implements IBoardService {
   create(id: string, title: string): IBoard {
-    throw new Error('Method not implemented.')
+    return {
+      id,
+      title,
+      columns: []
+    }
   }
   addColumn(column: IColumn): IBoard {
     throw new Error('Method not implemented.')
