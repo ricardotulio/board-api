@@ -1,3 +1,4 @@
+import CreateBoardController from '../application/controllers/CreateBoardController'
 import GetBoardController from '../application/controllers/GetBoardController'
 import BoardService from '../domain/services/BoardService'
 import BoardRepository from './repositories/FakeBoardRepository'
@@ -27,7 +28,20 @@ container.register('BoardRepository', () => {
 })
 
 container.register('GetBoardController', () => {
-  return (id: string) => GetBoardController(container.get('BoardRepository'), id)
+  return (request: { id: string }) =>
+    GetBoardController(
+      container.get('BoardRepository'),
+      request
+    )
+})
+
+container.register('CreateBoardController', () => {
+  return (request: { id: string, title: string }) =>
+    CreateBoardController(
+      container.get('BoardService'),
+      container.get('BoardRepository'),
+      request
+    )
 })
 
 export default container
