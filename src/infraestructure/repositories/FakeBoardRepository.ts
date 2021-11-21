@@ -54,11 +54,11 @@ class FakeBoardRepository implements IBoardRepository {
   }
   
   getList(): IBoard[] {
-    throw new Error('Method not implemented.');
+    throw new Error('Method not implemented.')
   }
 
-  persist(board: IBoard): void {
-    throw new Error('Method not implemented.');
+  persist(board: IBoard): IBoard {
+    return board
   }
 }
 
