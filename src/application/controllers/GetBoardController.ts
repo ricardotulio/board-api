@@ -1,10 +1,14 @@
 import IBoardRepository from '../../domain/repositories/IBoardRepository'
 
+interface GetBoardRequest {
+  id: string,
+}
+
 const GetBoardListController = (
   boardRepository: IBoardRepository,
-  id: string
+  request: GetBoardRequest
 ) => {
-  return boardRepository.get(id)
+  return boardRepository.get(request.id)
 }
 
 export default GetBoardListController
