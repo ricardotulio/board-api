@@ -1,4 +1,5 @@
 import GetBoardController from '../application/controllers/GetBoardController'
+import BoardService from '../domain/services/BoardService'
 import BoardRepository from './repositories/FakeBoardRepository'
 
 class Container {
@@ -16,6 +17,10 @@ class Container {
 }
 
 const container = new Container()
+
+container.register('BoardService', () => {
+  return new BoardService()
+})
 
 container.register('BoardRepository', () => {
   return new BoardRepository()
