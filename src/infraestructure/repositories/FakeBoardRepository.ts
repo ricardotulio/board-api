@@ -1,7 +1,7 @@
 import { IBoard } from '../../domain/entities/IBoard';
 import IBoardRepository from '../../domain/repositories/IBoardRepository'
 
-class SQLiteBoardRepository implements IBoardRepository {
+class FakeBoardRepository implements IBoardRepository {
   get(id: string): IBoard {
     return {
       id: '3588c4d3-cdd4-4e24-b254-fb15b66a7787',
@@ -62,4 +62,4 @@ class SQLiteBoardRepository implements IBoardRepository {
   }
 }
 
-export default SQLiteBoardRepository
+export default FakeBoardRepository
