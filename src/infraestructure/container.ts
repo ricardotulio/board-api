@@ -1,6 +1,5 @@
 import GetBoardController from '../application/controllers/GetBoardController'
 import BoardRepository from './repositories/FakeBoardRepository'
-import { curry, pipe } from 'ramda'
 
 class Container {
   container: { [key: string]: Function} = {}
@@ -17,5 +16,13 @@ class Container {
 }
 
 const container = new Container()
+
+container.register('BoardRepository', () => {
+  return new BoardRepository()
+})
+
+container.register('GetBoardController', () => {
+  return (id: string) => GetBoardController(container.get('BoardRepository'), id)
+})
 
 export default container
