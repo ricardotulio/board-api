@@ -1,7 +1,9 @@
-import { IColumn } from "./IColumn";
+import IColumn from "./IColumn";
 
-export interface IBoard {
+interface IBoard {
   id: string,
   title: string,
   columns: Array<IColumn>
 }
+
+export default IBoard

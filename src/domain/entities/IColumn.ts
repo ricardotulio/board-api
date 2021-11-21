@@ -1,7 +1,9 @@
-import { ICard } from './ICard'
+import ICard from './ICard'
 
-export interface IColumn {
+interface IColumn {
   id: string,
   title: string,
   cards: Array<ICard>
 }
+
+export default IColumn

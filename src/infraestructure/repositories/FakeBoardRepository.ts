@@ -1,4 +1,4 @@
-import { IBoard } from '../../domain/entities/IBoard';
+import IBoard from '../../domain/entities/IBoard';
 import IBoardRepository from '../../domain/repositories/IBoardRepository'
 
 class FakeBoardRepository implements IBoardRepository {
