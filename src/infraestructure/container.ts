@@ -3,8 +3,12 @@ import GetBoardController from '../application/controllers/GetBoardController'
 import BoardService from '../domain/services/BoardService'
 import BoardRepository from './repositories/FakeBoardRepository'
 
+type TContainer = {
+  [key: string]: Function
+}
+
 class Container {
-  container: { [key: string]: Function} = {}
+  container: TContainer = {}
 
   register(name: string, buildFunction: Function): Container {
     this.container[name] = buildFunction
