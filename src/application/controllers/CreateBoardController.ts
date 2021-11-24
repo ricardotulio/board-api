@@ -6,12 +6,12 @@ interface CreateBoardRequest {
   title: string,
 }
 
-const CreateBoardController = (
+const CreateBoardController = async (
   boardService: IBoardService,
   boardRepository: IBoardRepository,
   request: CreateBoardRequest) => {
   const board = boardService.create(request.id, request.title)
-  return boardRepository.persist(board)
+  return await boardRepository.persist(board)
 }
 
 export default CreateBoardController

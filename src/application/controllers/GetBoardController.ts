@@ -4,11 +4,11 @@ interface GetBoardRequest {
   id: string,
 }
 
-const GetBoardListController = (
+const GetBoardListController = async (
   boardRepository: IBoardRepository,
   request: GetBoardRequest
 ) => {
-  return boardRepository.get(request.id)
+  return await boardRepository.get(request.id)
 }
 
 export default GetBoardListController
